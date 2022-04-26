@@ -1,6 +1,3 @@
-//  TODO: Create a Schema
-// TODO: Create a model from that Schema
-
 //  What is a Schema?
 // A Schema is a set of rules that defines the rules of a single document in in MongoDB.
 
@@ -13,3 +10,10 @@ const productSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   dateAdded: { type: Date, default: Date.now() },
 });
+
+//  turn Schema into Javascript class
+const Product = mongoose.model("Product", productSchema);
+
+//  export the file
+
+module.exports = Product;

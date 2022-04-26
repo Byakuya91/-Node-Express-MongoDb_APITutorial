@@ -3,12 +3,15 @@ const connectDb = require("./db/db");
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const products = require("./routes/products");
 
 connectDb();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/api/products", products);
+
 //  PORT = 3007 from .env file
 const PORT = process.env.PORT || 5000;
 
